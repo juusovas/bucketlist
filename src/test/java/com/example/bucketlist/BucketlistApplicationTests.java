@@ -1,3 +1,5 @@
+/*
+
 package com.example.bucketlist;
 
 
@@ -27,3 +29,5 @@ public class BucketlistApplicationTests {
         assertThat(controller).isNotNull();
     }	
 }
+
+*/
