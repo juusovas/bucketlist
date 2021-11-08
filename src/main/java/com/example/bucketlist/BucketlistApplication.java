@@ -39,9 +39,8 @@ public class BucketlistApplication {
 			crepository.save(new Category("Creativity"));
 			crepository.save(new Category("Other"));
 			
-			trepository.save(new Task("Benji hyppy", "Kanada", "Heinäkuu 2023", crepository.findByName("Travel").get(0)));
-			// brepository.save(new Task("Laila Hietamies", "951-0-29835-2", "Hylätyt talot, autiot pihat", crepository.findByName("Travel").get(0)));
-			
+			// testi
+			// trepository.save(new Task("Benji hyppy", "Kanada", "Heinäkuu 2023", crepository.findByName("Travel").get(0)));
 			
 			// Create users: admin/admin user/user
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
@@ -49,10 +48,11 @@ public class BucketlistApplication {
 			urepository.save(user1);
 			urepository.save(user2);
 			
-			
+
 			log.info("fetch all tasks");
 			for (Task task : trepository.findAll()) {
 				log.info(task.toString());
+				
 			}
 
 		};

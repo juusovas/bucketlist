@@ -6,15 +6,15 @@ import javax.validation.constraints.Size;
 public class SignupForm {
 	
     @NotEmpty
-    @Size(min=5, max=30)
+    @Size(min=5, max=20)
     private String username = "";
 
     @NotEmpty
-    @Size(min=7, max=30)
+    @Size(min=8, max=20)
     private String password = "";
 
     @NotEmpty
-    @Size(min=7, max=30)
+    @Size(min=8, max=20)
     private String passwordCheck = "";
 
     @NotEmpty

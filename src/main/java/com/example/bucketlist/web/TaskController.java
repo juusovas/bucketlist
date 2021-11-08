@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Locale.Category;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class TaskController {
 	@Autowired
 	private CategoryRepository crepository; 
 	
-	// Show all books
+	// Show all tasks
     @RequestMapping(value="/login")
     public String login() {	
         return "login";
@@ -66,7 +67,7 @@ public class TaskController {
         return "addtask";
     }     
     
-    @PreAuthorize("hasAuthority('ADMIN')")
+    // @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/edit/{id}", method= RequestMethod.GET)
     public String editTask(@PathVariable("id") Long taskId, Model model){
     	System.out.println("terve");

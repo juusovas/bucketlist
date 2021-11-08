@@ -21,6 +21,8 @@ public class UserDetailServiceImpl implements UserDetailsService  {
 		this.repository = userRepository;
 	}
 
+
+	
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {   
@@ -29,4 +31,6 @@ public class UserDetailServiceImpl implements UserDetailsService  {
         		AuthorityUtils.createAuthorityList(curruser.getRole()));
         return user;
     }   
+    
+    
 } 

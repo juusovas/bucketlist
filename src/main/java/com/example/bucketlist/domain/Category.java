@@ -15,16 +15,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Category {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long categoryid;
 	private String name;
 	
 	@JsonIgnore // REST
-	@OneToMany (cascade = CascadeType.ALL, mappedBy = "category")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Task> tasks;
 	
 	public Category() {}
-	
 	
 	
 	public Category(String name) {
@@ -64,8 +63,4 @@ public class Category {
 		return "Category [categoryid=" + categoryid + ", name=" + name + "]";
 	}
 
-
-
-	
-	
 }

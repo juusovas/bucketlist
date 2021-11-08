@@ -3,7 +3,7 @@
 <head>
     <title> Tasklist </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 	<h1>Add Task</h1>
@@ -17,16 +17,16 @@
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 			<label for="where">Where</label>
-			<input type="text" id="where" th:field="*{where}" />
+			<input type="text" id="where" th:field="*{whereis}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	
 		  	<label for="when">When</label>
-			<input type="text" id="when" th:field="*{when}" />
+			<input type="text" placeholder="dd-mm-yyyy" id="when" th:field="*{whenis}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 			<label for="catlist">Category</label>
 			<select id="catlist" th:field="*{category}" class="form-control">
-				<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}" ></option>
+				<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
 			</select>
 			
 			<input type="submit" value="Save"></input>

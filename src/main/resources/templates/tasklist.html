@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <title> Tasklist </title>
+    <title> Bucket list </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
@@ -10,7 +10,7 @@
 
 <div class="container">
 	<div class="col-md-4">
-	<h1>Tasks</h1>
+	<h1>Bucket list</h1>
 	</div>
 	
 	<div class="col-md-4">
@@ -33,14 +33,14 @@
 		</tr>  
     	<tr th:each = "task : ${tasks}">
     		<td th:text="${task.what}"></td>
-    		<td th:text="${task.where}"></td>
-    		<td th:text="${task.when}"></td>
+    		<td th:text="${task.whereis}"></td>
+    		<td th:text="${task.whenis}"></td>
     		<td th:text="${task.category.name}"></td>
     		
     		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${task.id})}" class="btn btn-xs btn-danger">Delete</a></td> 
     		
  			
- 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${task.id})}" class="btn btn-warning">Edit</a></td>
+ 			<td> <!-- sec:authorize="hasAuthority('ADMIN')" --> <a th:href="@{/edit/{id}(id=${task.id})}" class="btn btn-warning">Edit</a></td>
  			
     	</tr>
      </table>
