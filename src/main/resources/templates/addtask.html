@@ -4,10 +4,14 @@
     <title> Tasklist </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <style> 
+    	body { background-color: #F0FFE9; }
+    </style>
 </head>
 <body>
-	<h1>Add Task</h1>
+	
 	<div class="container">
+	<h1>Add Task</h1>
 		<div class="col-md-4">
 	
 		<form th:object="${task}" th:action="@{save}" action="#" method="post">

@@ -1,6 +1,10 @@
 package com.example.bucketlist.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Table(name = "usertable")
 @Entity
@@ -8,9 +12,14 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false, updatable = false)
-	private Long id;
+	@Column(name = "userid", nullable = false, updatable = false)
+	private Long userid;
 
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "username")
+	private List<User> users;
+	
+	
 	// Username with unique constraint
 	@Column(name = "username", nullable = false, unique = true)
 	private String username;
@@ -31,12 +40,12 @@ public class User {
 		this.role = role;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getUserid() {
+		return userid;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setUserid(Long userid) {
+		this.userid = userid;
 	}
 
 	public String getUsername() {
@@ -61,6 +70,13 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 }

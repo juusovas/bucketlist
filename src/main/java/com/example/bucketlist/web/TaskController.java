@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.bucketlist.domain.CategoryRepository;
 import com.example.bucketlist.domain.Task;
 import com.example.bucketlist.domain.TaskRepository;
+import com.example.bucketlist.domain.UserRepository;
 
 
 @Controller
@@ -28,9 +29,14 @@ public class TaskController {
 	@Autowired
 	private CategoryRepository crepository; 
 	
+	@Autowired
+	private UserRepository urepository; 
+	
+	
 	// Show all tasks
     @RequestMapping(value="/login")
-    public String login() {	
+    public String login(Model model) {	
+    	 model.addAttribute("tasks", repository.findAll());
         return "login";
     }	
 	
@@ -63,6 +69,7 @@ public class TaskController {
     	
     	model.addAttribute("task", new Task());
     	model.addAttribute("categories", crepository.findAll());
+    	model.addAttribute("users", urepository.findByUsername("seppohovi"));
     
         return "addtask";
     }     

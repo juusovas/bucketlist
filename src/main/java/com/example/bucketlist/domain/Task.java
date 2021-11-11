@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -23,21 +24,26 @@ public class Task {
 	@JoinColumn(name = "categoryid")
 	private Category category;
 	
+	
+	@ManyToOne
+	@JoinColumn(name = "username")
+	private User username;
+
 	/*
-	LocalDate localDate = LocalDate.now();//For reference
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
-	String formattedString = localDate.format(formatter);
+	String formattedString = whenis.format(formatter);
 	*/
 	
 	public Task() {
 	}
 
-	public Task(String what, String whereis, String whenis, Category category) {
+	public Task(String what, String whereis, String whenis, Category category, User username) {
 		super();
 		this.what = what;
 		this.whereis = whereis;
 		this.whenis = whenis;
 		this.category = category;
+		this.username = username;
 	}
 
 	public Category getCategory() {
@@ -46,6 +52,14 @@ public class Task {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	
+	public User getUsername() {
+		return username;
+	}
+
+	public void setUsername(User username) {
+		this.username = username;
 	}
 
 	public Long getId() {
@@ -83,12 +97,13 @@ public class Task {
 	@Override
 	public String toString() {
 		if (this.category != null)
-			return "Task [id=" + id + ", what" + what + ", where=" + whereis + ", when=" + whenis + " category ="
-					+ this.getCategory() + "]";
+			return "Task [id=" + id + ", what" + what + ", where=" + whereis + ", when=" + whenis + ", category ="
+					+ this.getCategory() + ", username =" +this.getUsername() + "]";
 
 		else
 			return "Task [id=" + id + ", what=" + what + ", where=" + whereis + ", when=" + whenis + "]";
 
 	}
+
 
 }

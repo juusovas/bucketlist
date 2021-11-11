@@ -4,6 +4,9 @@
     <head>
         <title>Spring Security Example </title>
         <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    	<style> 
+    	body { background-color: #D1DCF8; }
+    	</style>
     </head>
     <body>
      <div class="col-md-4 col-md-offset-4">
@@ -13,12 +16,34 @@
         <div class="alert alert-warning" th:if="${param.logout}">
             You have been logged out.
         </div>
+        <div> <h1> The Bucket List application </h1> </div>
+       	
         <form th:action="@{/login}" method="post">
             <div><label> User Name : <input type="text" name="username" class="form-control"/> </label></div>
             <div><label> Password: <input type="password" name="password" class="form-control"/> </label></div>
             <div><input type="submit" value="Sign In" class="btn btn-primary"/></div>
         </form>
         <a th:href="@{/signup}">Sign-up</a>
+       </div>
+       
+       <div>
+       <table class="table table-striped">
+		<tr>
+		    <th>What</th>
+		    <th>Where</th>
+		    <th>When</th>
+		    <th>Category</th>
+		    <th>User</th>
+		</tr>  
+    	<tr th:each = "task : ${tasks}">
+    		<td th:text="${task.what}"></td>
+    		<td th:text="${task.whereis}"></td>
+    		<td th:text="${task.whenis}"></td>
+    		<td th:text="${task.category.name}"></td>
+    		
+    		<!-- <td th:text="${task.username.username}"></td> -->
+    	</tr>
+     </table>
        </div>
     </body>
 </html>
