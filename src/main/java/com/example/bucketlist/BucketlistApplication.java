@@ -42,7 +42,7 @@ public class BucketlistApplication {
 			// testi
 			//trepository.save(new Task("Bungee jump", "Canada", "01-12-2023", crepository.findByName("Travel").get(0)));
 			//trepository.save(new Task("Graduation", "Haaga-Helia", "01-01-2024", crepository.findByName("Education").get(0)));
-			// trepository.save(new Task("Rock Festival", "Hyvinkää", "01-06-2022", crepository.findByName("Entertainment").get(0)));
+			//trepository.save(new Task("Rock Festival", "Hyvinkää", "01-06-2022", crepository.findByName("Entertainment").get(0)));
 			
 			// Create users: admin/admin user/user
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");

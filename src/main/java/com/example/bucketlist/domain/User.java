@@ -23,7 +23,7 @@ public class User {
 	// Username with unique constraint
 	@Column(name = "username", nullable = false, unique = true)
 	private String username;
-
+	
 	@Column(name = "password", nullable = false)
 	private String passwordHash;
 

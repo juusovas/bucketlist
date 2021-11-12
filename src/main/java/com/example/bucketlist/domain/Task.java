@@ -2,6 +2,7 @@ package com.example.bucketlist.domain;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,10 +30,7 @@ public class Task {
 	@JoinColumn(name = "username")
 	private User username;
 
-	/*
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
-	String formattedString = whenis.format(formatter);
-	*/
+	
 	
 	public Task() {
 	}
@@ -94,6 +92,11 @@ public class Task {
 		this.whenis = whenis;
 	}
 
+	
+	
+	// String formattedDate = whenis.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG));
+
+	
 	@Override
 	public String toString() {
 		if (this.category != null)

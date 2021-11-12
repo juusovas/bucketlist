@@ -44,7 +44,7 @@ public class TaskController {
     @RequestMapping(value= {"/", "/tasklist"})
     public String taskList(Model model) {
     	System.out.println("hei");
-    	
+    	// model.addAttribute("username", urepository.findById());
         model.addAttribute("tasks", repository.findAll());
         return "tasklist";       
     }
@@ -69,7 +69,7 @@ public class TaskController {
     	
     	model.addAttribute("task", new Task());
     	model.addAttribute("categories", crepository.findAll());
-    	model.addAttribute("users", urepository.findByUsername("seppohovi"));
+    	// model.addAttribute("users", urepository.findByUsername());
     
         return "addtask";
     }     
