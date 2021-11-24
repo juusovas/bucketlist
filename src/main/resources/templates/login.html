@@ -33,15 +33,15 @@
 		    <th>Where</th>
 		    <th>When</th>
 		    <th>Category</th>
-		    <th>User</th>
+		    <th>User</th> 
 		</tr>  
     	<tr th:each = "task : ${tasks}">
     		<td th:text="${task.what}"></td>
     		<td th:text="${task.whereis}"></td>
     		<td th:text="${task.whenis}"></td>
     		<td th:text="${task.category.name}"></td>
-    		
     		<!-- <td th:text="${task.username.username}"></td> -->
+    		<th> </th>
     	</tr>
      </table>
        </div>

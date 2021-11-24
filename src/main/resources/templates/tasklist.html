@@ -31,18 +31,19 @@
 		    <th>Where</th>
 		    <th>When</th>
 		    <th>Category</th>
-		  
+		   
+		    <!-- <th>User</th> -->
 		    <!-- <th sec:authorize="hasAuthority('ADMIN')"> </th> -->
 		    
-		</tr> 
+		</tr>
 	 
     	<tr th:each = "task : ${tasks}">
     		<td th:text="${task.what}"></td>
     		<td th:text="${task.whereis}"></td>
     		<td th:text="${task.whenis}"></td>
     		<td th:text="${task.category.name}"></td>
-    		
-    		
+    		<!-- <td th:text="${task.username.username}"></td> -->
+    	 
     		
     		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${task.id})}" class="btn btn-xs btn-danger">Delete</a></td> 
     		

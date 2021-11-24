@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.bucketlist.domain.CategoryRepository;
 import com.example.bucketlist.domain.Task;
 import com.example.bucketlist.domain.TaskRepository;
+import com.example.bucketlist.domain.User;
 import com.example.bucketlist.domain.UserRepository;
 
 
@@ -30,21 +31,22 @@ public class TaskController {
 	private CategoryRepository crepository; 
 	
 	@Autowired
-	private UserRepository urepository; 
+	private UserRepository urepository;
 	
 	
 	// Show all tasks
     @RequestMapping(value="/login")
     public String login(Model model) {	
     	 model.addAttribute("tasks", repository.findAll());
-        return "login";
+    	 
+         return "login";
     }	
 	
 	
     @RequestMapping(value= {"/", "/tasklist"})
     public String taskList(Model model) {
     	System.out.println("hei");
-    	// model.addAttribute("username", urepository.findById());
+    	model.addAttribute("users", urepository.findAll());
         model.addAttribute("tasks", repository.findAll());
         return "tasklist";       
     }
@@ -69,7 +71,7 @@ public class TaskController {
     	
     	model.addAttribute("task", new Task());
     	model.addAttribute("categories", crepository.findAll());
-    	// model.addAttribute("users", urepository.findByUsername());
+    	model.addAttribute("users", urepository.findAll());
     
         return "addtask";
     }     
@@ -81,6 +83,7 @@ public class TaskController {
     	
     	model.addAttribute("task" , repository.findById(taskId));
     	model.addAttribute("categories", crepository.findAll());
+    	model.addAttribute("users", urepository.findAll());
     	
         return "edittask";
     }

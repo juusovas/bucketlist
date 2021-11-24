@@ -1,11 +1,18 @@
 package com.example.bucketlist.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class SignupForm {
 	
-    @NotEmpty
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	@NotEmpty
     @Size(min=5, max=20)
     private String username = "";
 
@@ -19,6 +26,14 @@ public class SignupForm {
 
     @NotEmpty
     private String role = "USER";
+    
+    public Long getId() {
+  		return id;
+  	}
+
+  	public void setId(Long id) {
+  		this.id = id;
+  	}
 
 	public String getUsername() {
 		return username;

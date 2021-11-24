@@ -1,15 +1,10 @@
 package com.example.bucketlist.domain;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -19,7 +14,7 @@ public class Task {
 	private Long id;
 	private String what;
 	private String whereis;
-	private String whenis;
+	private String whenis; 
 
 	@ManyToOne
 	@JoinColumn(name = "categoryid")
@@ -27,10 +22,9 @@ public class Task {
 	
 	
 	@ManyToOne
-	@JoinColumn(name = "username")
+	@JoinColumn(name = "userid")
 	private User username;
 
-	
 	
 	public Task() {
 	}

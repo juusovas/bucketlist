@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title> Tasklist </title>
+    <title> Task list </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
     <style> 
@@ -25,13 +25,21 @@
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	
 		  	<label for="when">When</label>
-			<input type="text" placeholder="yyyy-mm-dd" id="when" th:field="*{whenis}" />
+			<input type="text" placeholder="dd-mm-yyyy" id="when" th:field="*{whenis}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 			<label for="catlist">Category</label>
 			<select id="catlist" th:field="*{category}" class="form-control">
 				<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
 			</select>
+			<br>
+			<!--
+			<label for="username">User: </label>
+			<select id= "username" th:field="*{username}" class="form-control">
+				<option th:each="user : ${users}" th:value="${user.userid}" th:text="${user.username}" ></option>
+			</select>
+			<div style="clear: both; display: block; height: 10px;"></div>
+		 	-->
 			
 			<input type="submit" value="Save"></input>
 			

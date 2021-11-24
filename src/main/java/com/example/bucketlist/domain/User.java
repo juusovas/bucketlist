@@ -10,14 +10,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class User {
 
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "userid", nullable = false, updatable = false)
 	private Long userid;
 
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "username")
-	private List<User> users;
+	private List<Task> tasks;
 	
 	
 	// Username with unique constraint
@@ -40,6 +41,7 @@ public class User {
 		this.role = role;
 	}
 
+	
 	public Long getUserid() {
 		return userid;
 	}
@@ -69,14 +71,27 @@ public class User {
 	}
 
 	public void setRole(String role) {
-		this.role = role;
+		this.role = role; 
 	}
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public List<Task> getUsers() {
+		return tasks;
 	}
 
+	public void setUsers(List<Task> tasks) {
+		this.tasks = tasks;
+	}
+
+	public List<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", tasks=" + tasks + ", username=" + username + ", passwordHash="
+				+ passwordHash + ", role=" + role + "]";
+	}
 }
